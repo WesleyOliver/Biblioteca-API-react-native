@@ -48,6 +48,24 @@ export default function EmprestimoCad(){
 
     RepositoriesClientes();
 
+
+          /*  function carregarCombos(){
+                async function carregarLivros() {
+                    const response = await api.get('/livros');
+                    setLivros(response.data);
+                }
+
+                carregarLivros();
+
+                async function carregarClientes() {
+                    const response = await api.get('/clientes');
+                    setClientes(response.data);
+                }
+
+                carregarClientes();
+
+            }*/
+
         async function handleSubmit() {
         try {
             const response = await api.post('/emprestimos', 
@@ -102,6 +120,7 @@ export default function EmprestimoCad(){
                         onChangeText={setValorDoEmprestimo}
                         keyboardType="numeric" />
 
+                    <Text style={styles.label}>Livro:</Text>
                     <Picker selectedValue={idLivro}
                         onValueChange={setIdLivro}>
                             {
@@ -112,6 +131,7 @@ export default function EmprestimoCad(){
                             }
                     </Picker>
 
+                    <Text style={styles.label}>Cliente:</Text>
                     <Picker selectedValue={idCliente}
                         onValueChange={setIdCliente}>
                             {
@@ -135,6 +155,7 @@ export default function EmprestimoCad(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -163,10 +184,11 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',

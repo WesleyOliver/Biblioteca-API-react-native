@@ -34,12 +34,14 @@ export default function EnderecoList() {
                             <Text style={styles.label} >Cidade: {item.cidade}</Text>
                             <Text style={styles.label} >Estado: {item.estado}</Text>
                             <Text style={styles.label} >País: {item.pais}</Text>
-                            <TouchableOpacity onPress= {async () =>{
-                                const id = item.id;
-                                await api.delete(`/enderecos/${id}`)
-                            }}>
-                                <Text style={styles.botaoTexto}>Excluir</Text>
-                            </TouchableOpacity>
+                            <View style={styles.contButton}>
+                                <TouchableOpacity onPress= {async () =>{
+                                    const id = item.id;
+                                    await api.delete(`/enderecos/${id}`)
+                                }}>
+                                    <Text style={styles.botaoTexto}>Excluir</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
                     </View>
                 )} />
@@ -52,7 +54,7 @@ export default function EnderecoList() {
 const styles = StyleSheet.create({
     container: {
         marginTop: 10,
-        backgroundColor: '#0000FF',
+        backgroundColor: '#FFFFF0',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch'
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 18,
         marginTop: 30,
-        color: '#FFF',
+        color: '#444',
         fontWeight: 'bold',
         textAlign: 'center'
     },
@@ -76,9 +78,15 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         padding: 10
     },
+    contButton: {
+        alignItems: 'flex-end'
+    },
     botaoTexto: {
-        color: '#f05a5b',
+        backgroundColor: '#87CEEB',
+        padding: 4,
+        borderRadius: 5,
+        color: '#FFF',
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 16    
     }
 });

@@ -29,11 +29,11 @@ export default function EditoraCad(){
 
     return(
         <KeyboardAvoidingView 
-                enabled={Platform.OS == 'ios'} 
-                behavior="padding"
-                style={styles.container} >
-            <View style={styles.form}>
-                <Text style={styles.titulo}>Cadastro de Editora</Text>
+            enabled={Platform.OS == 'ios'} 
+            behavior="padding"
+            style={styles.container} >
+            <Text style={styles.titulo}>Cadastro de Editora</Text>
+            <View style={styles.form}>                
 
                 <TextInput style={styles.input}
                     placeholder="Nome da Editora"
@@ -54,6 +54,7 @@ export default function EditoraCad(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -82,10 +83,11 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',

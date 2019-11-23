@@ -34,14 +34,16 @@ export default function LivroCad(){
             const response = await api.get('/generos');
       
             setGeneros(response.data);
+            console.log("Entro");
           }
           
           carregarGeneros();
         }, []);
-      
+        
+       return generos;
     };
 
-    RepositoriesGeneros();
+   RepositoriesGeneros();
 
 
     const [autores, setAutores] = useState([]);
@@ -146,6 +148,7 @@ export default function LivroCad(){
                         onChangeText={setDataPublicacao}
                         keyboardType="numeric" />
 
+                    <Text style={styles.label}>Genero:</Text>
                     <Picker selectedValue={idGenero}
                         onValueChange={setIdGenero}>
                             {
@@ -156,6 +159,7 @@ export default function LivroCad(){
                             }
                     </Picker>
 
+                    <Text style={styles.label}>Autor:</Text>
                     <Picker selectedValue={idAutor}
                         onValueChange={setIdAutor}>
                             {
@@ -166,6 +170,7 @@ export default function LivroCad(){
                             }
                     </Picker>
 
+                    <Text style={styles.label}>Editora:</Text>
                     <Picker selectedValue={idEditora}
                         onValueChange={setIdEditora}>
                             {
@@ -189,6 +194,7 @@ export default function LivroCad(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -203,6 +209,7 @@ const styles = StyleSheet.create({
     },
     label: {
         fontWeight: 'bold',
+        fontSize: 16,
         color: '#444',
         marginBottom: 8
     },
@@ -217,10 +224,11 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',

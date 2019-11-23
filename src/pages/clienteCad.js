@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
 import {View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Alert, Picker, Platform
 } from 'react-native';
 
-import {RadioGroup, RadioButton} from 'react-native-flexi-radio-button'
+import { RadioButton } from 'react-native-paper'
+
 
 import api from '../services/api';
 
@@ -20,31 +21,13 @@ export default function ClienteCad(){
 
 
     const [enderecos, setEnderecos] = useState([]);
-    // const RepositoriesEnderecos = () => {
-        
-        
-    //     useEffect(() => {
-    //       async function carregarEnderecos() {
-    //         const response = await api.get('/enderecos');
-      
-    //         setEnderecos(response.data);
-    //       }
-    //       carregarEnderecos();
-    //     }, []);
-      
-    // };
 
-    useEffect(() => {
-        async function getEnderecos() {
-            const response = await api.get('/enderecos');
-            console.log(`Passou aqui: ${JSON.stringify(response.data)}`)
-            setEnderecos(response.data);
-        };  
-        getEnderecos();
-        return () => {
-            setNome('');
-        };
-    }, []);
+    async function carregarEnderecos(){
+        const response = await api.get('/enderecos');
+        setEnderecos(response.data);
+    }
+
+    carregarEnderecos();
     
     async function handleSubmit() {
         try {
@@ -104,14 +87,25 @@ export default function ClienteCad(){
                         placeholderTextColor="#999"
                         value={telefone}
                         onChangeText={setTelefone}
-                        keyboardType="numeric" />
-                     
-                     <TextInput style={styles.input}
-                        placeholder="Sexo"
-                        placeholderTextColor="#999"
-                        value={sexo}
-                        onChangeText={setSexo} />
+                        keyboardType="numeric" />        
 
+                    <View style={styles.radioSexo}>
+                        
+                        <RadioButton.Group
+                            onValueChange={setSexo}
+                            value={sexo} >
+                            <View style={styles.radioSexoOption}>
+                                <Text>Masculino</Text>
+                                <RadioButton value="MASCULINO" />
+                            </View>
+                            <View style={styles.radioSexoOption}>
+                                <Text>Feminino</Text>
+                                <RadioButton value="FEMININO" />
+                            </View>
+                        </RadioButton.Group>
+                    </View>
+
+                    <Text style={styles.label}>Endereço:</Text>
                     <Picker selectedValue={idEndereco}
                         onValueChange={setIdEndereco}>
                             {
@@ -135,6 +129,7 @@ export default function ClienteCad(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -149,6 +144,7 @@ const styles = StyleSheet.create({
     },
     label: {
         fontWeight: 'bold',
+        fontSize: 16,
         color: '#444',
         marginBottom: 8
     },
@@ -163,14 +159,26 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',
         fontWeight: 'bold',
         fontSize: 16
+    },
+    radioSexo: {
+        borderWidth: 1,
+        borderColor: '#ddd',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 10
+    },
+    radioSexoOption: {
+        marginRight: 30,
+        marginLeft: 30
     }
 });

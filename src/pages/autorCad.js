@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, Alert} 
     from 'react-native';
 
+import { RadioButton } from 'react-native-paper'
+
 import { Platform } from '@unimodules/core';
-import { useScreens } from 'react-native-screens';
 import api from '../services/api';
 
 export default function AutorCad(){
@@ -32,22 +33,33 @@ export default function AutorCad(){
 
     return(
         <KeyboardAvoidingView 
-                enabled={Platform.OS == 'ios'} 
-                behavior="padding"
-                style={styles.container} >
+            enabled={Platform.OS == 'ios'} 
+            behavior="padding"
+            style={styles.container} >
+            <Text style={styles.titulo}>Cadastro de Autor</Text>
             <View style={styles.form}>
-                <Text style={styles.titulo}>Cadastro de Autor</Text>
+        
                 <TextInput style={styles.input}
                     placeholder="Nome do Autor"
                     placeholderTextColor="#999"
                     value={nome}
                     onChangeText={setNome} />
 
-                <TextInput style={styles.input}
-                    placeholder="Sexo"
-                    placeholderTextColor="#999"
-                    value={sexo}
-                    onChangeText={setSexo} />
+                <View style={styles.radioSexo}>
+                
+                    <RadioButton.Group
+                        onValueChange={setSexo}
+                        value={sexo} >
+                        <View style={styles.radioSexoOption}>
+                            <Text>Masculino</Text>
+                            <RadioButton value="MASCULINO" />
+                        </View>
+                        <View style={styles.radioSexoOption}>
+                            <Text>Feminino</Text>
+                            <RadioButton value="FEMININO" />
+                        </View>
+                    </RadioButton.Group>
+                </View>
                     
                 <TouchableOpacity style={styles.botao} onPress={handleSubmit}>
                     <Text style={styles.botaoTexto}>Salvar</Text>
@@ -63,6 +75,7 @@ export default function AutorCad(){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -91,14 +104,26 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',
         fontWeight: 'bold',
         fontSize: 16
+    },
+    radioSexo: {
+        borderWidth: 1,
+        borderColor: '#ddd',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom: 10
+    },
+    radioSexoOption: {
+        marginRight: 30,
+        marginLeft: 30
     }
 });

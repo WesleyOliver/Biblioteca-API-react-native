@@ -30,8 +30,8 @@ export default function GeneroCad() {
             enabled={Platform.OS == 'ios'} 
             behavior="padding"
             style={styles.container} >
-            <View style={styles.form}>
-                <Text style={styles.titulo}>Cadastro de Genero</Text>
+            <Text style={styles.titulo}>Cadastro de Genero</Text>
+            <View style={styles.form}>                
 
                 <TextInput style={styles.input}
                     placeholder="Descrição do genero"
@@ -49,6 +49,7 @@ export default function GeneroCad() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#FFFFF0',
         justifyContent: 'center',
         alignItems: 'center'
     }, 
@@ -77,10 +78,11 @@ const styles = StyleSheet.create({
     },
     botao: {
         height: 42,
-        backgroundColor: '#f05a5b',
+        width: 150,
+        backgroundColor: '#87CEEB',
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 2
+        borderRadius: 7
     },
     botaoTexto: {
         color: '#FFF',

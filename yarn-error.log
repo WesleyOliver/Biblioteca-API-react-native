@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add react-native-flexi-radio-button
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js add react-native-paper
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
@@ -34,9 +34,11 @@ npm manifest:
       "react-dom": "16.8.3",
       "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
       "react-native-calendario": "^0.3.1",
+      "react-native-flexi-radio-button": "^0.2.2",
       "react-native-gesture-handler": "~1.3.0",
       "react-native-masked-text": "^1.13.0",
       "react-native-reanimated": "~1.2.0",
+      "react-native-simple-radio-button": "^2.7.4",
       "react-native-web": "^0.11.7",
       "react-navigation": "^4.0.10",
       "react-navigation-drawer": "^2.2.2"
@@ -4373,6 +4375,11 @@ Lockfile:
     dependencies:
       moment "^2.24.0"
   
+  react-native-flexi-radio-button@^0.2.2:
+    version "0.2.2"
+    resolved "https://registry.yarnpkg.com/react-native-flexi-radio-button/-/react-native-flexi-radio-button-0.2.2.tgz#a0180393c531ba3477722c6e42a31ceb1c11623b"
+    integrity sha1-oBgDk8UxujR3cixuQqMc6xwRYjs=
+  
   react-native-gesture-handler@~1.3.0:
     version "1.3.0"
     resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.3.0.tgz#d0386f565928ccc1849537f03f2e37fd5f6ad43f"
@@ -4408,6 +4415,11 @@ Lockfile:
     integrity sha512-tOxHGQUN83MTmQB4ghoQkibqOdGiX4JQEmeyEv96MKWO/x8T2PJv84ECUos9hD3blPRQwVwSpAid1PPPhrVEaw==
     dependencies:
       debounce "^1.2.0"
+  
+  react-native-simple-radio-button@^2.7.4:
+    version "2.7.4"
+    resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.4.tgz#86e2dbe8af9e6bf60eee088f60466f7a975e7758"
+    integrity sha512-QOZNmJUn0ViBGU+at7wAG/uGzd5PfXi0kMHr9lfTCLXknW/f9f2fOVjxjdHvOCdf/zA/eMJBjGjtusSDzQf1+w==
   
   react-native-view-shot@2.6.0:
     version "2.6.0"
