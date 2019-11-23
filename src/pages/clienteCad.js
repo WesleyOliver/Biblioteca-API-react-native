@@ -14,7 +14,7 @@ export default function ClienteCad(){
     const [cpf, setCpf] = useState('');
     const [email, setEmail] = useState('');
     const [telefone, setTelefone] = useState('');
-    const [sexo, setSexo] = useState('');
+    const [sexo, setSexo] = useState(''); 
     
     const [idEndereco, setIdEndereco] = useState('');
 
